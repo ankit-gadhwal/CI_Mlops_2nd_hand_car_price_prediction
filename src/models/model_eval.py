@@ -13,8 +13,19 @@ import dagshub
 import mlflow
 from mlflow.models import infer_signature
 
-dagshub.init(repo_owner='ankit-gadhwal', repo_name='CI_Mlops_2nd_hand_car_price_prediction', mlflow=True)
-mlflow.set_tracking_uri("https://dagshub.com/ankit-gadhwal/CI_Mlops_2nd_hand_car_price_prediction.mlflow")
+# 1. Setup Authentication
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_TOKEN environment variable (DAGSHUB_TOKEN) is not set")
+
+# Set environment variables for MLflow authentication
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+dagshub_url = "https://dagshub.com"
+repo_owner = "ankit-gadhwal"
+repo_name = "CI_Mlops_2nd_hand_car_price_prediction"
+mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
 
 def get_or_create_experiment_id(experiment_name):
 
