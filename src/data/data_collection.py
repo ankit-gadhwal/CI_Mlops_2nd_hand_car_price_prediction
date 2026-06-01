@@ -44,7 +44,7 @@ def save_data(df : pd.DataFrame,filepath: str) ->None:
 
 def main():
     try:
-        data_filepath = "data/train.csv"
+        data_filepath = "train.csv"
         params_filepath = "params.yaml"
         raw_data_path = os.path.join("data","raw")
         data = load_data(data_filepath)
