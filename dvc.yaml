@@ -1,0 +1,39 @@
+stages:
+  data_collection:
+    cmd: python src\data\data_collection.py
+    deps:
+    - params.yaml
+    - src\data\data_collection.py
+    outs:
+    - data/raw
+  data_preparation:
+    cmd: python src\data\data_prep.py
+    deps:
+    - data\raw
+    - src\data\data_prep.py
+    outs:
+    - data\processed
+  model_building:
+    cmd: python src\models\model_building.py
+    deps:
+    - params.yaml
+    - data\processed\train_processed.csv
+    - data\processed\val_processed.csv
+    - src\models\model_building.py
+    outs:
+    - car_price_model.h5
+  model_eval:
+    cmd: python src\models\model_eval.py
+    deps:
+    - car_price_model.h5
+    - data\processed\test_processed.csv
+    - src\models\model_eval.py
+    outs:
+    - reports/metrics.json
+    - reports/run_info.json 
+  model_registration:
+    cmd: python src\models\model_registory.py
+    deps:
+    - reports/run_info.json
+    - src\models\model_registory.py
+    always_changed: true

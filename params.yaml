@@ -1,0 +1,12 @@
+data_collection:
+  TRAINRATIO: 0.8
+  VAL_RATIO: 0.1
+  TEST_RATIO: 0.1
+model_building:
+  unit1: 135
+  unit2: 128
+  unit3: 100
+  unit4: 1
+  learning_r: 0.001
+  epoch: 100
+  
