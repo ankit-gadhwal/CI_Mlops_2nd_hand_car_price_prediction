@@ -88,3 +88,5 @@ target/
 .mypy_cache/
 /reports/
 car_price_model.h5
+docker_api_req
+kubernetes_car_price.yaml
