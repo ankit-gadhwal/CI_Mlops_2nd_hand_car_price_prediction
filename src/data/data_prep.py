@@ -12,10 +12,10 @@ def load_data(filepath:str)->pd.DataFrame:
     
 def feature_engineering(df):
      
-     df["depreciation"] = (
-        df["on road old"] -
-        df["on road now"]
-    )
+    #  df["depreciation"] = (
+    #     df["on road old"] -
+    #     df["on road now"]
+    # )
 
     # km per year
      df["km_per_year"] = (
