@@ -82,9 +82,9 @@ def home():
 @app.post("/predict")
 def predict(data: CarInput):
 
-    # depreciation = (
-    #     data.on_road_old - data.on_road_now
-    # )
+    depreciation = (
+        data.on_road_old - data.on_road_now
+    )
 
     km_per_year = (
         data.km / (data.years + 1)
@@ -109,7 +109,7 @@ def predict(data: CarInput):
         "top speed": data.top_speed,
         "hp": data.hp,
         "torque": data.torque,
-        # "depreciation": depreciation,
+        "depreciation": depreciation,
         "km_per_year": km_per_year,
         "performance": performance,
         "value_score": value_score
