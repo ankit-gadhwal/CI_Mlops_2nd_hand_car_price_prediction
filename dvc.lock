@@ -27,25 +27,25 @@ stages:
       nfiles: 3
     - path: src/data/data_prep.py
       hash: md5
-      md5: 5de0b13dd3cac9c31e280b6baba38299
-      size: 3104
+      md5: fc58f70c5e1c146b82a506019664a194
+      size: 3102
     outs:
     - path: data/processed
       hash: md5
-      md5: e71ce3793f488718d2bede2f1876e928.dir
-      size: 102602
+      md5: d513513020e4ade05c84430295ac5fbd.dir
+      size: 103542
       nfiles: 3
   model_building:
     cmd: python src/models/model_building.py
     deps:
     - path: data/processed/train_processed.csv
       hash: md5
-      md5: e5bffb8efe674ead24817651bb2df7cf
-      size: 81916
+      md5: cf51165ed0cb827dd0fe06a378142731
+      size: 82667
     - path: data/processed/val_processed.csv
       hash: md5
-      md5: deaf771aba7f45213aa8e11d71e22dad
-      size: 10382
+      md5: 098d0322b039e3a0c3298fbe23c61079
+      size: 10480
     - path: params.yaml
       hash: md5
       md5: d8d64c97995563f9496311373a82f702
@@ -57,7 +57,7 @@ stages:
     outs:
     - path: car_price_model.h5
       hash: md5
-      md5: fcf6d57e271e13e000533554aafed3bc
+      md5: 18d49085a30b3318fec5fd1def7d0a2f
       size: 429152
   model_eval:
     cmd: python src/models/model_eval.py

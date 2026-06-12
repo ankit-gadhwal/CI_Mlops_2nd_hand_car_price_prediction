@@ -14,7 +14,7 @@ def feature_engineering(df):
      
      df["depreciation"] = (
         df["on road old"] -
-        df["current price"]
+        df["on road now"]
     )
 
     # km per year
